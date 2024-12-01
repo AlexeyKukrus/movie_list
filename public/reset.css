@@ -1,0 +1,98 @@
+/* reset.css */
+
+/* Устанавливаем box-sizing для всех элементов */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Убираем отступы и стили списка */
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Убираем подчеркивание ссылок */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Убираем стандартные стили для изображений */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border: 0;
+}
+
+/* Убираем стандартные стили для таблиц */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Устанавливаем единообразный стиль кнопок */
+button,
+input,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+}
+
+/* Убираем дефолтные стили для форм */
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+legend {
+  display: none;
+}
+
+/* Убираем стандартные стили для html и body */
+html {
+  line-height: 1.15; /* Устраняем проблему с линиями в некоторых браузерах */
+  -webkit-text-size-adjust: 100%; /* Убираем масштабирование шрифтов в Safari */
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif; /* Можно заменить на базовый шрифт проекта */
+}
+
+/* Сбрасываем стили для заголовков */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* Убираем стандартные стили для блоков цитат */
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+  content: '';
+}
+
