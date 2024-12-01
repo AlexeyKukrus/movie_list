@@ -1,0 +1,24 @@
+import axios, { AxiosResponse } from "axios";
+import { MovieApiResponse } from "../types/api-types";
+
+const token = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiYzI2NzdkYTNkZDEzZWZhOTUwNzIxZmZkMGQ1N2M4NyIsIm5iZiI6MTczMTkzMTk1MC43OTE3ODk1LCJzdWIiOiI2NTBiMDk2OTUwMWNmMjAwYWRlZjM5YTYiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.kofsqv9psyYCSUqBlY7SZXXoF3OA7tJrmFk19EyuBwM'
+const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: `Bearer ${token}`
+  }
+};
+
+
+export const getMoviesList = async () => {
+  const url = 'https://api.themoviedb.org/3/search/movie?query=return';
+
+  try {
+    const response: AxiosResponse<MovieApiResponse> = await axios.get(url, options);
+    console.log("res", response)
+    return response.data
+  } catch (error) {
+    throw new Error('Failed to fetch movies');
+  }
+}
