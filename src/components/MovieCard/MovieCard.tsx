@@ -4,11 +4,10 @@ import styles from './MovieCard.module.css';
 import { Movie } from "../../types/api-types";
 
 interface propTypes {
-  key: number,
   movie: Movie
 }
-export const MovieCard: React.FC<propTypes> = ({key, movie}) => {
 
+export const MovieCard: React.FC<propTypes> = ({movie}) => {
   const truncateText = (text: string, maxLength: number) => {
     if (text.length <= maxLength) {
       return text;
@@ -21,8 +20,9 @@ export const MovieCard: React.FC<propTypes> = ({key, movie}) => {
 
     return text.slice(0, maxLength).trim() + '...';
   }
+  
   return (
-    <div className={styles.card}>
+    <div className={styles.card} >
       <img src={` https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={`${movie.title}`} className={styles.poster} />
       <div className={styles.content}>
         <h3 className={styles.title}>{movie.title}</h3>
