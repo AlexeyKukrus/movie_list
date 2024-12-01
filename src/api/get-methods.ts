@@ -18,6 +18,10 @@ export const getMoviesList = async () => {
     const response: AxiosResponse<MovieApiResponse> = await axios.get(url, options);
     return response.data
   } catch (error) {
-    throw new Error('Failed to fetch movies');
+    if (error instanceof Error) {
+      throw new Error(error.message);
+    } else {
+      throw new Error('Something was wrong. Try it later!');
+    }
   }
 }

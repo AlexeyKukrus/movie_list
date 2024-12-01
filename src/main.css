@@ -3,12 +3,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   background-color: #f7f7f7;
 }
 
 .container {
   width: 1010px;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #ffffff;
 }
