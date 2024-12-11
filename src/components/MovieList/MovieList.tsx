@@ -8,13 +8,17 @@ import { Movie } from "../../types/api-types";
 
 import styles from './MovieList.module.css'
 
-export const MovieList: React.FC = () => {
+interface PropTypes {
+  search: string,
+}
+
+export const MovieList:React.FC<PropTypes>= ({search}) => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    getMoviesList().then((response) => {
+    getMoviesList(search).then((response) => {
       const updatedList = response.results || []
       setMovies(updatedList)
     }).catch((err) => {
@@ -22,7 +26,7 @@ export const MovieList: React.FC = () => {
     }).finally(() => {
       setIsLoading(false)
     })
-  }, []);
+  }, [search]);
 
   if (isLoading) {
     return <Spin className={styles.loader} tip="Loading" size="large" />;

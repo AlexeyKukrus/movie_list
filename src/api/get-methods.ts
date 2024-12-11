@@ -11,9 +11,8 @@ const options = {
 };
 
 
-export const getMoviesList = async () => {
-  const url = 'https://api.themoviedb.org/3/search/movie?query=return';
-
+export const getMoviesList = async (search: string ) => {
+  const url = `https://api.themoviedb.org/3/search/movie?query=${search}`;
   try {
     const response: AxiosResponse<MovieApiResponse> = await axios.get(url, options);
     return response.data
